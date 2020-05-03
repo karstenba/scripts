@@ -6,7 +6,7 @@ set -e
 [[ $1 == "l" ]] && COLORSCHEME="light"
 [[ $1 == "d" ]] && COLORSCHEME="dark"
 
-sed -ri "s/(solarized\.)[a-z]{4,5}/\1$COLORSCHEME/" ~/.Xresources
-sed -ri "s/(set background=)[a-z]{4,5}/\1$COLORSCHEME/" ~/.vimrc
-sed -ri "s/(solarized-)[a-z]{4,5}/\1$COLORSCHEME/" ~/.taskrc
+sed -ri --follow-symlinks "s/(solarized\.)[a-z]{4,5}/\1$COLORSCHEME/" ~/.Xresources
+sed -ri --follow-symlinks "s/(set background=)[a-z]{4,5}/\1$COLORSCHEME/" ~/.vimrc
+sed -ri --follow-symlinks "s/(solarized-)[a-z]{4,5}/\1$COLORSCHEME/" ~/.taskrc
 xrdb -load ~/.Xresources
